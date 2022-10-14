@@ -1,8 +1,8 @@
-# [Sponsorname] Contest
+# Debt DAO Contest
 
 Unless otherwise discussed, this repo will be made public after contest completion, sponsor review, judging, and two-week issue mitigation window.
 
-**Contributors to this repo:** prior to report publication, please review the [Agreements & Disclosures](/issues/1) issue.
+**Contributors to this repo:** prior to report publication, please review the [Agreements & Disclosures](https://github.com/code-423n4/2022-10-debtdao-findings/issues/1) issue.
 
 ---
 
