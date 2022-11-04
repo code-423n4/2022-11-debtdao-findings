@@ -34,3 +34,28 @@ https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contra
 https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L520
 
 Consider bounding the loop where possible to avoid unnecessary gas wastage and denial of service.
+
+## Typo Errors
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L520
+
+```
+            @ priviliges
+Line 45   * @param arbiter_    - A neutral party with some special priviliges on behalf of Borrower and Lender.
+```
+## Inadequate NatSpec
+Solidity contracts can use a special form of comments, i.e., the Ethereum Natural Language Specification Format (NatSpec) to provide rich documentation for functions, return variables and more. Please visit the following link for further details:
+
+https://docs.soliditylang.org/en/v0.8.16/natspec-format.html
+
+Here are some of the instances entailed:
+
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L64-L72
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L117-L210
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L223-L409
+
+## Variable Names
+Consider making the naming of local variables more verbose and descriptive so all other peer developers would better be able to comprehend the intended statement logic, significantly enhancing the code readability. Here are some of the instances entailed:
+
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L123
+
+## 
