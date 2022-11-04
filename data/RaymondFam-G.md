@@ -148,3 +148,21 @@ A storage pointer is cheaper since copying a state struct in memory would incur 
 https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/SpigotedLine.sol#L100
 https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/SpigotedLine.sol#L139
 https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L273
+
+## Unneeded If Else Statement
+Although it has been commented that the logic of `_canDeclareInsolvent()` is updated in Spigoted and Escrowed lines, the if condition of `declareInsolvent()` is going to always return true when internally calling `_canDeclareInsolvent()`. The `if ... else` code block is therefore deemed not needed and may be refactored as follows:
+
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L149-L154
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L157-L160
+
+```
+            _updateStatus(LineLib.STATUS.INSOLVENT);
+            return true;
+```
+That being said, a returned boolean is also not needed since it is going to always return true. 
+
+## Internal Functions Only Called Once
+An internal function not called by the child contracts and only called by one other function in the parent contract may be embedded inline. Here are some of the instances entailed:
+
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L157
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L167-L169  
