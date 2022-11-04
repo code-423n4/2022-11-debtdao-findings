@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "codingsh",
+  "risk": "3",
+  "title": "Reentrancy, uses arbitrary from in transferFrom and functions that send ether to arbitrary destinations",
+  "issueId": 44,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/44"
+}
