@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "rvierdiiev",
+  "risk": "2",
+  "title": "LineLib.sendOutTokenOrETH function use transfer to send ether",
+  "issueId": 27,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/27"
+}
