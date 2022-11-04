@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "rvierdiiev",
+  "risk": "2",
+  "title": "Function `LineOfCredit.addCredit` do not support non standard ERC20 tokens",
+  "issueId": 26,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/26"
+}
