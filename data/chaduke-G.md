@@ -34,5 +34,5 @@ modifier onlyOperator() {
 Now we can delete line: 
 https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/SpigotLib.sol#L62
 
- 
+ G3: unfold the state struct and let each item inside to become a state variable. This will not only improve the readibility of the code but also save much gas because we can save the gas to calculate the address of each member item inside.
  
