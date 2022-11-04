@@ -60,6 +60,8 @@ Consider making the naming of local variables more verbose and descriptive so al
 
 https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L123
 https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L185
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/utils/EscrowLib.sol#L55
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/utils/LineFactoryLib.sol#L48-L50
 
 ## Unused `receive()` Will Lock Ether in Contract
 If the Ether received is intended to be used, the function should call another function, otherwise it should revert. Here is one instance entailed:
@@ -84,6 +86,7 @@ The delete key better conveys the intention and is also more idiomatic. Consider
 
 https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/utils/CreditLib.sol#L188
 https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/utils/CreditLib.sol#L219
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/utils/SpigotLib.sol#L117
 
 ## Missing `payable` Visibility
 `receiveTokenOrETH()` serves to receive ETH or ERC20 token at this contract from an external contract according to the comment and the function logic. However, devoid of the `payable` visibility, all calls attempting to send ETH into the contract via this function call is going to be rejected.
@@ -100,4 +103,27 @@ https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contra
 ```
 Note: `2**256 - 1` and `uint256(-1)` are two other alternatives that can used for the constant assignment.
 
-  
+## Minimization of Truncation
+As an example, the code line below may be refactored to minimize the frequency of truncation:  
+
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/utils/EscrowLib.sol#L43
+
+```
+        return (_numerator + debtValue * 5) / (10 * debtValue);
+```
+Note: Comment the refactored code with the original multiple division arithmetic operation where deemed fit.
+
+## Events Associated With Setter Functions
+Consider having events associated with setter functions emit both the new and old values instead of just the new value. Here are some of the instances entailed:
+
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/utils/SpigotLib.sol#L178-L205
+
+## Two-step Change
+In `SpigotLib.sol`, `updateOwner()` should be implemented transferring owner role to another address in a pending state. And then, `acceptOwner()` should be introduced for the newly nominated owner to claim the new role. This will ensure the new owner is going to be fully aware of the privilege assigned/transferred. Additionally, the risk of having ownership transferred to an invalid address that would cause the contract to be without an owner will be avoided. The same adoption should also be applied to `updateOperator()` and `updateTreasury()` where possible.
+
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/utils/SpigotLib.sol#L178-L205
+
+## Failed Function Call Could Occur Without Contract Existence Check
+Performing a low-level calls without confirming contract’s existence (not yet deployed or have been destructed) could return success even though no function call was executed. Here are some of the instances entailed:
+
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/utils/LineFactoryLib.sol#L58-L65
