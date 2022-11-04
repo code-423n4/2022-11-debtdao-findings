@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "chaduke",
+  "risk": "2",
+  "title": "claimEscrow is subject to reentrancy attack",
+  "issueId": 36,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/36"
+}
