@@ -54,3 +54,67 @@ modifier onlyLine() {
         _;
 }
 ```
+
+G5: add modifier ``onlyArbiter`` to function ``enableCollateral`` in ``escrow.sol``.
+https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/modules/escrow/Escrow.sol#L00
+```
+function enableCollateral(address token) external 
+onlyArbiter
+returns (bool) {
+        return state.enableCollateral(oracle, token);
+    }
+}
+
+modifier onlyArbiter() {
+        if(msg.sender != ILineOfCredit(state.line).arbiter()) revert CallerAccessDenied();
+        _;
+}
+```
+
+G6: use the short-circuit rule to eliminate one if-statement for ``enableCollaberal`` function in ``escrowlib.sol``:
+```
+    function enableCollateral(EscrowState storage self, address oracle, address token) external returns (bool) {
+       if(self.enabled[token] return true;
+
+        IEscrow.Deposit memory deposit = self.deposited[token]; // gas savings
+        if (token == Denominations.ETH) {
+                // enable native eth support
+                deposit.asset = Denominations.ETH;
+                deposit.assetDecimals = 18;
+            } else {
+                (bool passed, bytes memory tokenAddrBytes) = token.call(
+                    abi.encodeWithSignature("asset()")
+                );
+
+                bool is4626 = tokenAddrBytes.length > 0 && passed;
+                deposit.isERC4626 = is4626;
+                // if 4626 save the underlying token to use for oracle pricing
+                deposit.asset = !is4626
+                    ? token
+                    : abi.decode(tokenAddrBytes, (address));
+
+                int256 price = IOracle(oracle).getLatestAnswer(deposit.asset);
+                if (price <= 0) {
+                    revert InvalidCollateral();
+                }
+
+                (bool successDecimals, bytes memory decimalBytes) = deposit
+                    .asset
+                    .call(abi.encodeWithSignature("decimals()"));
+                if (decimalBytes.length > 0 && successDecimals) {
+                    deposit.assetDecimals = abi.decode(decimalBytes, (uint8));
+                } else {
+                    deposit.assetDecimals = 18;
+                }
+            }
+
+            // update collateral settings
+            self.enabled[token] = true;
+            self.deposited[token] = deposit;
+            self.collateralTokens.push(token);
+            emit EnableCollateral(deposit.asset);
+         return true;
+    }
+
+```
+ 
