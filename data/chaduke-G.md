@@ -120,3 +120,13 @@ G6: use the short-circuit rule to eliminate one if-statement for ``enableCollabe
 
 G7. The following two wrapper funcdtions can be eliminated to save gas. One can call the ``_getLatestCollateralRatio(self, oracle)`` and ``_getCollateralValue`` directly. 
 https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/EscrowLib.sol#L182-L189
+
+G8: https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/modules/credit/LineOfCredit.sol#L69
+This function can be eliminated and be inlined into ``init()* as it just returns a constant.
+```
+ function init() external virtual returns(LineLib.STATUS) {
+      if(status != LineLib.STATUS.UNINITIALIZED) { revert AlreadyInitialized(); }
+      return _updateStatus(LineLib.STATUS.ACTIVE);
+    }
+
+```
