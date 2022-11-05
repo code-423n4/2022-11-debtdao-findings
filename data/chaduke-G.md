@@ -126,3 +126,14 @@ G8: delete the function ``_healthcheck()`` in Escrowedline.sol to save gas since
 G9: delete function ``_liquidate`` in Escrowedline.sol to save gas since one can simply call ``escrow.liquidate(amount, targetToken, to)`` directly. This will also improve the readability of the code.
 
 
+G10. The assignment line can be eliminated to save gas:
+https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/modules/credit/SecuredLine.sol#L38
+```
+function _init() internal override(SpigotedLine, EscrowedLine) virtual returns(LineLib.STATUS) {
+    if(SpigotedLine._init() != s || EscrowedLine._init() != s) 
+      return LineLib.STATUS.UNINITIALIZED;
+    
+    
+    return LineLib.STATUS.ACTIVE;
+  }
+```
