@@ -77,4 +77,8 @@ function _init() internal override(SpigotedLine, EscrowedLine) virtual returns(L
   }
 ```
 
+QA10: https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/MutualConsent.sol#L38
+emit MutualConsentRegistered(newHash) is performed only for the first party when he/she consented, should be emitted for both parties. In addition, add another argument for the event - the address of the party who consented. 
+
+
 
