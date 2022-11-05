@@ -121,4 +121,4 @@ G6: use the short-circuit rule to eliminate one if-statement for ``enableCollabe
 G7. The following two wrapper funcdtions can be eliminated to save gas. One can call the ``_getLatestCollateralRatio(self, oracle)`` and ``_getCollateralValue`` directly. 
 https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/EscrowLib.sol#L182-L189
 
-G8: 
+G8: delete the function ``_healthcheck()`` in Escrowedline.sol to save gas since one can simply call escrow.isLiquitable() directly. This also eliminate one version of _healthcheck() in the code as too many versions of _healthcheck/healthcheck is not necessary (only two logics are needed actually). 
