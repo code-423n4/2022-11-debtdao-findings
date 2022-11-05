@@ -84,3 +84,7 @@ emit MutualConsentRegistered(newHash) is performed only for the first party when
 QA11: current implementation of ``_mutualConsent()`` only works for one time due to line 
 https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/MutualConsent.sol#L57
 As a result, all those functions that use _mutualConsent() as the modifier, such as ``addCredit()``, ``setRates()``, ``increaseCredit()`` can be performed once and then a new consent needs to be in place. Since they all use the same underlying ``_mutualConsent``, there is also the limitation that two parties agree to ``addCredit()`` but one party can abuse it to ``increaseCredit()``. That is, what has been mutually agreeed on is not explicit and thus can be abused. 
+
+QA12: https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/modules/credit/LineOfCredit.sol#L132
+block.timestamp should be strictly greater than deadline for a line to be considered liquidable. 
+
