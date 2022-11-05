@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "cryptphi",
+  "risk": "3",
+  "title": "Lender can have receive funds multiple times on ERC777 tokens deposited in LineOfCredit contract",
+  "issueId": 74,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/74"
+}
