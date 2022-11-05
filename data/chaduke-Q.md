@@ -62,3 +62,9 @@ QA8: the whole EscrowedLine.sol can be eliminated by declaring the ONLY ``escrow
 2) One exception is the ``_canDeclareInsolvent()`` which implements a simple predicate *if escrow.getCollateralValues() !=0)*. However, this can be either expressed directly where it is needed or be a function of escrow as well. 
 3) This will greatly reduce the unnecessary code and complexity and attack surface.
 
+
+QA9: when update the status, the event should include both the old status and the new status
+```
+emit UpdateStatus(oldstatus, newstaus)
+```
+
