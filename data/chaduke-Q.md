@@ -54,21 +54,5 @@ QA6: https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa23
 Zero address check is advised for ``oracle``, `arbiter`` and ``borrower`` and range check is suggested for ``ttl``.
 
 QA7: https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/MutualConsent.sol#L38-L60
-Since msg.data is has a variable length, use ``abi.encode()`` instead of ``abi.encodePacked()``.
-
-QA8: In LineOfCredit.sol, function ``_healthcheck`` implementation can include the change of status inside so that we do not have to call _updateStaus(_healthcheck()) explicitly. There is no need to check other status inside ``_healthcheck()`` - the only thing we need to check is whether the line is LIQUITABLE or not. We suggest to combine *healthcheck()* and *_healthcheck* into one function. This implementation is much simpler than the original one, see below.
-
-```
-function healthcheck() external returns (LineLib.STATUS) {
-        // @audit: no need to check other status logic
-
-        // Liquidate if all credit lines aren't closed by deadline
-        if (block.timestamp >= deadline && count > 0) {
-            emit Default(ids[0]); // can query all defaulted positions offchain once event picked up
-            _updateStatus(LineLib.STATUS.LIQUIDATABLE); @audit; update status here
-        }
-        return status; 
-     }
-```
-
-
+Since msg.data is has a variable length, use ``abi.encode()`` instead of ``abi.encodePacked()``
+.
