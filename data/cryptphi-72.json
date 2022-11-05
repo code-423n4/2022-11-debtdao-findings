@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "cryptphi",
+  "risk": "2",
+  "title": "Call to depositAndClose() could revert on some prior non-closed full repayment.",
+  "issueId": 72,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/72"
+}
