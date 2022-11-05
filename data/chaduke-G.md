@@ -147,4 +147,8 @@ No need to call ``LineOfCredit._init();``, which just returns a constant, the fu
     }
 ```
 
+G12, function ``_accrue()`` in ``LineOfCredit.sol`` can be eliminated since it is a one-line wrapper of function ``CreditLib.accure()``, one can call the later directly. Line 206 can be replaced by
+```
+          credits[id] = CreditLib.accrue(credit, id, address(interestRate));
+```
 
