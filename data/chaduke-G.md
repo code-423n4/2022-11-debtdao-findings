@@ -137,3 +137,18 @@ function _init() internal override(SpigotedLine, EscrowedLine) virtual returns(L
     return LineLib.STATUS.ACTIVE;
   }
 ```
+
+G11. As a matter of fact, the SIX versions of _init/init can easily consolidated into ONE _init function in ``SecureLine.sol` as they are just wrappers of two conditions to make sure escrow and spigot are assigned to the contract address of SecuredLinesol.
+
+```
+function _init() internal override(SpigotedLine, EscrowedLine) virtual returns(LineLib.STATUS) {
+    if(SpigotedLine._init() != s || EscrowedLine._init() != s) 
+      return LineLib.STATUS.UNINITIALIZED;
+    
+    
+    return LineLib.STATUS.ACTIVE;
+  }
+```
+
+
+ 
