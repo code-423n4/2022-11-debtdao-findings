@@ -152,3 +152,31 @@ G12, function ``_accrue()`` in ``LineOfCredit.sol`` can be eliminated since it i
           credits[id] = CreditLib.accrue(credit, id, address(interestRate));
 ```
 
+G13: https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/modules/credit/LineOfCredit.sol#L388
+The ``close()* function should performance a zero-principal check first to save gas. Currently, it is checked inside the ``_close()'' function, which is too late. The new version of ``close()`` function is as follows. 
+```
+function close(bytes32 id) external payable override returns (bool) {
+        Credit memory credit = credits[id];
+        if(credit.principal !=0 ) revert CloseFailedWithPrincipal();
+ 
+        address b = borrower; // gas savings
+        if(msg.sender != credit.lender && msg.sender != b) {
+          revert CallerAccessDenied();
+        }
+
+        // ensure all money owed is accounted for. Accrue facility fee since prinicpal was paid off
+        credit = _accrue(credit, id);
+        uint256 facilityFee = credit.interestAccrued;
+        if(facilityFee > 0) {
+          // only allow repaying interest since they are skipping repayment queue.
+          // If principal still owed, _close() MUST fail
+          LineLib.receiveTokenOrETH(credit.token, b, facilityFee);
+
+          credit = _repay(credit, id, facilityFee);
+        }
+
+        _close(credit, id); // deleted; no need to save to storage
+
+        return true;
+    }
+```
