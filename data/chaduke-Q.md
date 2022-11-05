@@ -56,3 +56,9 @@ Zero address check is advised for ``oracle``, `arbiter`` and ``borrower`` and ra
 QA7: https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/MutualConsent.sol#L38-L60
 Since msg.data is has a variable length, use ``abi.encode()`` instead of ``abi.encodePacked()``
 .
+
+QA8: the whole EscrowedLine.sol can be eliminated by declaring the ONLY ``escrow`` state variable directly in the ``SecureLine* contract because
+1) Every function is internal and a one-line-wrapper of a function in escrow. Therefore, it is better to call escrow.fun directly without introducing the wrapper. 
+2) One exception is the ``_canDeclareInsolvent()`` which implements a simple predicate *if escrow.getCollateralValues() !=0)*. However, this can be either expressed directly where it is needed or be a function of escrow as well. 
+3) This will greatly reduce the unnecessary code and complexity and attack surface.
+
