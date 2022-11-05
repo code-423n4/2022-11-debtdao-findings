@@ -49,3 +49,8 @@ modifier onlyLine() {
         _;
 }
 ```
+
+QA6: https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/modules/credit/LineOfCredit.sol#L49
+Zero address check is advised for ``oracle``, `arbiter`` and ``borrower`` and range check is suggested for ``ttl``.
+
+QA7: 
