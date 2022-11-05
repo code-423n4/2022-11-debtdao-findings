@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "aphak5010",
+  "risk": "3",
+  "title": "Calling Spigot.claimRevenue function with non-existent revenue contract address sends all pushed revenue to treasury",
+  "issueId": 70,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/70"
+}
