@@ -138,17 +138,13 @@ function _init() internal override(SpigotedLine, EscrowedLine) virtual returns(L
   }
 ```
 
-G11. As a matter of fact, the SIX versions of _init/init can easily consolidated into ONE _init function in ``SecureLine.sol` as they are just wrappers of two conditions to make sure escrow and spigot are assigned to the contract address of SecuredLinesol.
-
+G11.  https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/modules/credit/SpigotedLine.sol#L73
+No need to call ``LineOfCredit._init();``, which just returns a constant, the function can be simplified by:
 ```
-function _init() internal override(SpigotedLine, EscrowedLine) virtual returns(LineLib.STATUS) {
-    if(SpigotedLine._init() != s || EscrowedLine._init() != s) 
-      return LineLib.STATUS.UNINITIALIZED;
-    
-    
-    return LineLib.STATUS.ACTIVE;
-  }
+ function _init() internal virtual override(LineOfCredit) returns(LineLib.STATUS) {
+      if(spigot.owner() != address(this)) return LineLib.STATUS.UNINITIALIZED;
+      return Linelib.STATUS.ACTIVE;
+    }
 ```
 
 
- 
