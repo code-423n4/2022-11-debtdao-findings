@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "HE1M",
+  "risk": "2",
+  "title": "Function `removePosition(...)` always returns true & the return Boolean is not checked",
+  "issueId": 54,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/54"
+}
