@@ -67,4 +67,14 @@ QA9: when update the status, the event should include both the old status and th
 ```
 emit UpdateStatus(oldstatus, newstaus)
 ```
+QA10. As a matter of fact, the FIVE versions of _init/init() (Escrowline.sol, Spigotedline.sol, LineOfCredit.sol and SecuredLine.sol) can easily consolidated into ONE _init function in ``SecureLine.sol` as they are just wrappers of two conditions to make sure escrow and spigot are assigned to the current contract address of SecuredLinesol. This greatly simplifies the code and unnecessary complexity and thus the attack surface.
+
+```
+function _init() internal override(SpigotedLine, EscrowedLine) virtual returns(LineLib.STATUS) {
+    if(spigot.owner() != address(this)) return LineLib.STATUS.UNINITIALIZED;  // @audit: check condition 1
+    if(escrow.line() != address(this)) return LineLib.STATUS.UNINITIALIZED;  // @audit: check condition 2
+    return LineLib.STATUS.ACTIVE;
+  }
+```
+
 
