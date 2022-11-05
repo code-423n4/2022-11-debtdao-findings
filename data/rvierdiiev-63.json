@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "rvierdiiev",
+  "risk": "2",
+  "title": "SpigotedLineLib.updateSplit can be called by third party actor. He can make decisions on bahalf of borrower and lenders.",
+  "issueId": 63,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/63"
+}
