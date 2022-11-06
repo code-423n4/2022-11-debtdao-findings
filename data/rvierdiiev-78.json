@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "rvierdiiev",
+  "risk": "2",
+  "title": "Malicious `Escrow` can be passed to the line with `SecuredLine.rollover` function",
+  "issueId": 78,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/78"
+}
