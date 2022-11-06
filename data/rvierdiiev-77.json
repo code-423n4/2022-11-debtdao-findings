@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "rvierdiiev",
+  "risk": "2",
+  "title": "`SecuredLine.rollover` function allows to rollover to `CreditOfLine`. Ownersip of `Spigot` will be lost ferover.",
+  "issueId": 77,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/77"
+}
