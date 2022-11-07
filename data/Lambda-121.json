@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Lambda",
+  "risk": "2",
+  "title": "Significant rounding error when calculating interest owed",
+  "issueId": 121,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/121"
+}
