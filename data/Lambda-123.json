@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Lambda",
+  "risk": "2",
+  "title": "Fee-on-transfer / rebasing tokens lead to errors",
+  "issueId": 123,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/123"
+}
