@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "aphak5010",
+  "risk": "3",
+  "title": "Lender can cause unlimited debt due to underflow",
+  "issueId": 93,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/93"
+}
