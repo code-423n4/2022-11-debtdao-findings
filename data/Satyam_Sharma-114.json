@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Satyam_Sharma",
+  "risk": "2",
+  "title": "LineLib.receiveTokenOrETH should be marked as payable as it is using msg.value",
+  "issueId": 114,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/114"
+}
