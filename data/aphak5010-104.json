@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "aphak5010",
+  "risk": "3",
+  "title": "ETH can be lost in Escrow if sending token and ETH in single transaction",
+  "issueId": 104,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/104"
+}
