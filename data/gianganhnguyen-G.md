@@ -113,6 +113,7 @@ I suggest using `calldata` instead of `storage` here:
     File contracts/utils/SpigotLib.sol, line 227:     function getSetting(SpigotState storage self, address revenueContract)
 
 I suggest using `calldata` instead of `memory` here:
+
     File contracts/utils/SpigotLib.sol, line 483:     function _close(Credit memory credit, bytes32 id)
 
     File contracts/utils/CreditListLib.sol, line 74:     
