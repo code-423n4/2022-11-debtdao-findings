@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "8olidity",
+  "risk": "2",
+  "title": "`address.call{value:x}()` should be used instead of `payable.transfer()`",
+  "issueId": 92,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/92"
+}
