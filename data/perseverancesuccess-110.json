@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "perseverancesuccess",
+  "risk": "3",
+  "title": "Lender can trade claimToken in a malicious way to steal the borrower money via claimAndRepay() in SpigotedLine by using malicious zeroExTradeData",
+  "issueId": 110,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/110"
+}
