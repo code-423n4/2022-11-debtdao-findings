@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Lambda",
+  "risk": "3",
+  "title": "Wrong decimals for ERC4626 used",
+  "issueId": 120,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/120"
+}
