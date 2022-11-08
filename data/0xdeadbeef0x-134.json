@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "0xdeadbeef0x",
+  "risk": "3",
+  "title": "Borrower can steal all revenue funds to himself",
+  "issueId": 134,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/134"
+}
