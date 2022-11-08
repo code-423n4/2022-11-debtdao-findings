@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "durianSausage",
+  "risk": "3",
+  "title": "### H01:  We should use address(xxx).call{value:xxxx} instead of payable(msg.sender).transfer(",
+  "issueId": 143,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/143"
+}
