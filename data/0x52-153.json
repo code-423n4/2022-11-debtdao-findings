@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "0x52",
+  "risk": "3",
+  "title": "Malicious lender can claim revenue and steal it from borrower",
+  "issueId": 153,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/153"
+}
