@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "8olidity",
+  "risk": "2",
+  "title": "Malicious lender can prevent `_close()`",
+  "issueId": 133,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/133"
+}
