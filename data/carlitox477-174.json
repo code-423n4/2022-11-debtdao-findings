@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "carlitox477",
+  "risk": "2",
+  "title": "Borrower can avoid liquidation through updateOutstandingDebt DOS if the oracle provides prices of too many tokens",
+  "issueId": 174,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/174"
+}
