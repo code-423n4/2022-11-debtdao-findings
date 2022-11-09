@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "ayeslick",
+  "risk": "3",
+  "title": "Borrower can prevent `declareInsolvent` from being called by Arbiter",
+  "issueId": 166,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/166"
+}
