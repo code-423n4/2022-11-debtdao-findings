@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "0xbepresent",
+  "risk": "2",
+  "title": "Native ether value lockout in the contract LineOfCreadit.sol via payable functions.",
+  "issueId": 200,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/200"
+}
