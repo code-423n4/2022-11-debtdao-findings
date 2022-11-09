@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "lukris02",
+  "risk": "2",
+  "title": "Removing a position (id of  credit line) does not decrease the ```ids``` length, which can lead to an unbounded-loop",
+  "issueId": 204,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/204"
+}
