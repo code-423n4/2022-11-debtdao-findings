@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "KingNFT",
+  "risk": "3",
+  "title": "The borrower can borrow and get back all collateral token before repaid  when the collateral token is ERC20 extensive with hook",
+  "issueId": 185,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/185"
+}
