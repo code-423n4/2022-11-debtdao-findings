@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "carlitox477",
+  "risk": "3",
+  "title": "receiveTokenOrETH allows to send more ETH than indicated, then that ETH won't count as lender credit",
+  "issueId": 175,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/175"
+}
