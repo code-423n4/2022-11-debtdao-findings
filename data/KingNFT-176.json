@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "KingNFT",
+  "risk": "3",
+  "title": "The 'close()' function of LineOfCredit.sol is susceptible to reentrancy attack",
+  "issueId": 176,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/176"
+}
