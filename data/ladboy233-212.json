@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "Stale Oracle price from chainlink can be used to determine the collateral value and the oustanding debt",
+  "issueId": 212,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/212"
+}
