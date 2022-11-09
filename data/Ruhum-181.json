@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Ruhum",
+  "risk": "2",
+  "title": "`LineLib.receiveTokenOrETH()` allows the caller to send more ETH than necessary which will be locked up in the contract",
+  "issueId": 181,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/181"
+}
