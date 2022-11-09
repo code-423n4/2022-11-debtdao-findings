@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "Unbounded loop when iterating the ids array in LineOfCredit.sol",
+  "issueId": 206,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/206"
+}
