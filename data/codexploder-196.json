@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "codexploder",
+  "risk": "2",
+  "title": "Fee on transfer token lead to incorrect amounts being credited",
+  "issueId": 196,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/196"
+}
