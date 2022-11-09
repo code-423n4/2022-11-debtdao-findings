@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "KingNFT",
+  "risk": "3",
+  "title": "The risk of locking ETH when the borrower or lender is a contract",
+  "issueId": 178,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/178"
+}
