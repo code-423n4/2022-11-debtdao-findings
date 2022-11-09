@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "alexxander",
+  "risk": "2",
+  "title": "Reentrancy in borrow() can alter the id's FIFO queue",
+  "issueId": 207,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/207"
+}
