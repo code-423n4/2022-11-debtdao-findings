@@ -34,6 +34,7 @@ https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c
 In `claimAndTrade` function in `SpigotedLineLib.sol`, the following condition `if(claimToken == targetToken)`
  will never be true in current implementation. As previous call paths check for the same condition.
 
+https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/SpigotedLineLib.sol#L53
 ```
 function claimAndTrade(
         address claimToken,
@@ -50,6 +51,7 @@ function claimAndTrade(
         if(claimToken == targetToken) { revert BadTradingPair(); }
 ```
 Previous condition:
+https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/modules/credit/SpigotedLine.sol#L154
 ```
  function claimAndTrade(address claimToken, bytes calldata zeroExTradeData)
         external
@@ -78,6 +80,7 @@ Previous condition:
 In the `sweep` function in `SpigotedLine.sol`. The return statement `return success ? amount : 0;` will always return the amount because `SpigotedLineLib.sweep` always returns true or reverts. Never false. 
 
 SpigotedLine.sol#sweep:
+https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/modules/credit/SpigotedLine.sol#L255
 ```
 function sweep(address to, address token) external nonReentrant returns (uint256) {
         uint256 amount = unusedTokens[token];
@@ -96,6 +99,7 @@ function sweep(address to, address token) external nonReentrant returns (uint256
     }
 ```
 `SpigotedLineLib.sweep` the `return false` will never be called:
+https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/SpigotedLineLib.sol#L217
 ```
     function sweep(address to, address token, uint256 amount, LineLib.STATUS status, address borrower, address arbiter) external returns (bool) {
         if(amount == 0) { revert UsedExcessTokens(token, 0); }
@@ -118,6 +122,7 @@ function sweep(address to, address token) external nonReentrant returns (uint256
     }
 ```
 `LineLib.sendOutTokenOrETH` always returns True or reverts:
+https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/LineLib.sol#L34
 ```
     function sendOutTokenOrETH(
       address token,
