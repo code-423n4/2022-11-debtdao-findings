@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Ruhum",
+  "risk": "2",
+  "title": "Whitelisting functions across contracts in the Spigot can cause huge problems",
+  "issueId": 180,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/180"
+}
