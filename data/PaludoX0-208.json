@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "PaludoX0",
+  "risk": "3",
+  "title": "Function getOutstandingDebt in CreditLib doesn't check if price = 0",
+  "issueId": 208,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/208"
+}
