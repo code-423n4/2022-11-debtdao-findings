@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "rotcivegaf",
+  "risk": "2",
+  "title": "[rotcivegaf] The `latestRoundData` of chainlink is not consumed in a completely safe way",
+  "issueId": 197,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/197"
+}
