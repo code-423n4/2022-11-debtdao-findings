@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "0xbepresent",
+  "risk": "2",
+  "title": "Native ether value lockout in the contract Escrow.sol via payable function",
+  "issueId": 201,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/201"
+}
