@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "adriro",
+  "risk": "3",
+  "title": "Whitelisted functions aren't scoped to revenue contracts and may lead to unnoticed calls due to selector clashing",
+  "issueId": 312,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/312"
+}
