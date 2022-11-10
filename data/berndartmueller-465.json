@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "berndartmueller",
+  "risk": "2",
+  "title": "Unbounded loop in `LineOfCredit.accrueInterest` can lead to broken interest accrual",
+  "issueId": 465,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/465"
+}
