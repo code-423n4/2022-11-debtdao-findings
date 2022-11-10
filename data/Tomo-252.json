@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Tomo",
+  "risk": "2",
+  "title": "[Tomo-M1] Chainlink latestRoundData invalid validation",
+  "issueId": 252,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/252"
+}
