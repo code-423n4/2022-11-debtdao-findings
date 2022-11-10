@@ -74,6 +74,25 @@ File: EscrowLib.sol
 133:                     .call(abi.encodeWithSignature("decimals()"));
 ```
 
+# [L] ABI.ENCODEPACKED() SHOULD NOT BE USED WITH DYNAMIC TYPES WHEN PASSING THE RESULT TO A HASH FUNCTION SUCH AS KECCAK256()
+
+Use `abi.encode()` instead which will pad items to 32 bytes, which will prevent hash collisions (e.g. `abi.encodePacked(0x123,0x456)` => `0x123456` => `abi.encodePacked(0x1,0x23456)`, but `abi.encode(0x123,0x456)` => `0x0...1230...456`). “Unless there is a compelling reason, `abi.encode` should be preferred”.
+
+```solidity
+File: MutualConsent.sol
+45:         bytes32 expectedHash = keccak256(abi.encodePacked(msg.data, nonCaller));
+46: 
+47:         if (!mutualConsents[expectedHash]) {
+48:             bytes32 newHash = keccak256(abi.encodePacked(msg.data, msg.sender));
+49: 
+50:             mutualConsents[newHash] = true;
+51: 
+52:             emit MutualConsentRegistered(newHash);
+53: 
+54:             return false;
+55:         }
+```
+
 # [NC] USE A MORE RECENT VERSION OF SOLIDITY
 
 Most of the contract use 0.8.9 version of solidity, use a solidity version of at least 0.8.12 to get string.concat() instead of abi.encodePacked(,) Use a solidity version of at least 0.8.13 to get the ability to use `using for` with a list of free functions
