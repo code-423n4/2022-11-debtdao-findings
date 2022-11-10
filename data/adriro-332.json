@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "adriro",
+  "risk": "3",
+  "title": "Reentrancy attack when closing a credit in the LineOfCredit contract",
+  "issueId": 332,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/332"
+}
