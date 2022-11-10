@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "bulej93",
+  "risk": "3",
+  "title": "Borrower can put their address when submiting addCredit() which can make the lender not be able to withdraw tokens",
+  "issueId": 359,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/359"
+}
