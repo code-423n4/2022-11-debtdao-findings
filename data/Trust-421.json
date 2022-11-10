@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Trust",
+  "risk": "3",
+  "title": "Borrower can craft a borrow that cannot be liquidated, even by arbiter. ",
+  "issueId": 421,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/421"
+}
