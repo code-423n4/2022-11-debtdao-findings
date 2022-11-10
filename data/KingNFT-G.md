@@ -3,3 +3,6 @@ https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c
 
 [G-02] Cache 'claimFunction' in stack to save gas
 https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/SpigotLib.sol#L42
+
+[G-03] Cache 'self.deposited[token].amount' in stack to save gas
+https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/EscrowLib.sol#L164
