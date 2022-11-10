@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "KingNFT",
+  "risk": "2",
+  "title": "The 'trade()' function may be stuck for some tokens like USDT",
+  "issueId": 237,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/237"
+}
