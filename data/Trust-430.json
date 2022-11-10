@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Trust",
+  "risk": "3",
+  "title": "When lender consents before borrower in ETH credit token, all the lent funds are permanently lost.",
+  "issueId": 430,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/430"
+}
