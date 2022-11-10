@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Deivitto",
+  "risk": "2",
+  "title": "Use of `transfer()` instead of `call()` to send eth",
+  "issueId": 469,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/469"
+}
