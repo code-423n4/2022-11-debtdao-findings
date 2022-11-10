@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "adriro",
+  "risk": "2",
+  "title": "Functions that involve a trade in the SpigotedLine contract should link trade output to credit debt",
+  "issueId": 349,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/349"
+}
