@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "adriro",
+  "risk": "3",
+  "title": "`useAndRepay` function can be used to underflow the principal debt of a credit",
+  "issueId": 336,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/336"
+}
