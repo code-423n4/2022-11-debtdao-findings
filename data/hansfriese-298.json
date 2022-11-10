@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "hansfriese",
+  "risk": "3",
+  "title": "A borrower can get the `STATUS.REPAID` by closing the credit several times.",
+  "issueId": 298,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/298"
+}
