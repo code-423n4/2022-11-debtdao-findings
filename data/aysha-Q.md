@@ -3,3 +3,15 @@ Contracts should be deployed using the same compiler version/flags with which th
 https://swcregistry.io/docs/SWC-103
 ex:
 https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/modules/credit/LineOfCredit.sol#L1
+==========================================================
+
+Unhandled return values of transfer and transferFrom: ERC20 implementations are not always consistent. Some implementations of transfer and transferFrom could return ‘false’ on failure instead of reverting. It is safer to wrap such calls into require() statements to these failures.
+Recommendation: Check the return value and revert on 0/false or use OpenZeppelin’s SafeERC20 wrapper functions
+Medium severity finding from Consensys Diligence Audit of Aave Protocol V2: https://consensys.net/diligence/audits/2020/09/aave-protocol-v2/#unhandled-return-values-of-transfer-and-transferfrom
+
+https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/LineLib.sol#L48
+==========================================================
+
+Reentrancy vulnerabilities: Untrusted external contract calls could callback leading to unexpected results such as multiple withdrawals or out-of-order events. Use check-effects-interactions pattern or reentrancy guards. (see here: https://swcregistry.io/docs/SWC-107)
+https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/LineLib.sol#L59
+==========================================================
