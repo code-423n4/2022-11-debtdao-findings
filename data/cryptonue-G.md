@@ -8,3 +8,38 @@ File: CreditListLib.sol
 
 51:       for(uint i = 1; i < len; ++i) {
 ```
+
+# USAGE OF UINTS/INTS SMALLER THAN 32 BYTES (256 BITS) INCURS OVERHEAD
+
+When using elements that are smaller than 32 bytes, your contract’s gas usage may be higher. This is because the EVM operates on 32 bytes at a time. Therefore, if the element is smaller than that, the EVM must use more operations in order to reduce the size of the element from 32 bytes to the desired size.
+
+https://docs.soliditylang.org/en/v0.8.11/internals/layout_in_storage.html
+
+Each operation involving a uint8 costs an extra 28 gas as compared to ones involving uint256, due to the compiler having to clear the higher bits of the memory word before operating on the uint8, as well as the associated stack operations of doing so. Use a larger size then downcast where needed.
+
+
+```solidity
+File: ILineFactory.sol
+04:     struct CoreLineParams {
+05:         address borrower;
+06:         uint256 ttl;
+07:         uint32 cratio;
+08:         uint8 revenueSplit;
+09:     }
+
+File: ISpigot.sol
+5:     struct Setting {
+6:         uint8 ownerSplit;             // x/100 % to Owner, rest to Treasury
+7:         bytes4 claimFunction;         // function signature on contract to call and claim revenue
+8:         bytes4 transferOwnerFunction; // function signature on contract to call and transfer ownership 
+9:     }
+
+File: SpigotedLine.sol
+32:     uint8 public immutable defaultRevenueSplit;
+
+File: LineFactory.sol
+12:     uint8 constant defaultRevenueSplit = 90; // 90% to debt repayment
+13:     uint8 constant MAX_SPLIT = 100; // max % to take
+14:     uint32 constant defaultMinCRatio = 3000; // 30.00% minimum collateral ratio
+
+```
