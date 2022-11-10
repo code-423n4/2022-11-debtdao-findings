@@ -114,3 +114,8 @@ Hash collisions with multiple variable length arguments: Using abi.encodePacked(
 https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/MutualConsent.sol#L45
 https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/MutualConsent.sol#L48
 ==========================================================
+
+ERC20 transfer and transferFrom: Should return a boolean. Several tokens do not return a boolean on these functions. As a result, their calls in the contract might fail. (See here:https://github.com/crytic/building-secure-contracts/blob/master/development-guidelines/token_integration.md#erc-conformity  )
+
+https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/LineLib.sol#L48
+==========================================================
