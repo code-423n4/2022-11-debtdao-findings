@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "smiling_heretic",
+  "risk": "2",
+  "title": "Lender can force early liquidation directly from borrower’s account by calling `line.close`",
+  "issueId": 424,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/424"
+}
