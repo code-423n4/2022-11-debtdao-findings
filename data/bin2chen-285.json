@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "bin2chen",
+  "risk": "2",
+  "title": "operate() does not check illegal revenueContract",
+  "issueId": 285,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/285"
+}
