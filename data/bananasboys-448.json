@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "bananasboys",
+  "risk": "2",
+  "title": "Potential inability to work with non-EOA accounts when ETH is used as asset",
+  "issueId": 448,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/448"
+}
