@@ -57,6 +57,13 @@ https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contra
             @ priviliegad
    *(@dev priviliegad internal function.
 ```
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/escrow/Escrow.sol#L94
+
+```
+            @ thdeposits
+     * @notice - allows  the lines arbiter to  enable thdeposits of an asset
+```
+
 ## Inadequate NatSpec
 Solidity contracts can use a special form of comments, i.e., the Ethereum Natural Language Specification Format (NatSpec) to provide rich documentation for functions, return variables and more. Please visit the following link for further details:
 
@@ -114,7 +121,7 @@ https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contra
 ```
     uint256 constant MAX_INT = type(uint256).max
 ```
-Note: `2**256 - 1` and `uint256(-1)` are two other alternatives that can used for the constant assignment.
+Note: `2**256 - 1` and `uint256(-1)` are two other alternatives that can used for the constant assignment. Additionally, the literally long numerical value may be commented if need be.
 
 ## Minimization of Truncation
 As an example, the code line below may be refactored to minimize the frequency of truncation:  
@@ -149,3 +156,62 @@ https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contra
 https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L47
 https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/SpigotedLine.sol#L36-L37
 https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/SecuredLine.sol#L72
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/escrow/Escrow.sol#L62
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/escrow/Escrow.sol#L71
+
+## Add a Timelock to Critical Parameter Change
+It is a good practice to give time for users to react and adjust to critical changes with a mandatory time window between them. The first step merely broadcasts to users that a particular change is coming, and the second step commits that change after a suitable waiting period. This allows users that do not accept the change to withdraw within the grace period. A timelock provides more guarantees and reduces the level of trust required, thus decreasing risk for users. It also indicates that the project is legitimate (less risk of a malicious Owner making any malicious or ulterior intention). Specifically, privileged roles could use front running to make malicious changes just ahead of incoming transactions, or purely accidental negative effects could occur due to the unfortunate timing of changes. Here are some of the instances entailed:
+
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/utils/SpigotLib.sol#L125-L213
+
+## Contract Owner Has Too Many Privileges
+The owner of the contracts has too many privileges relative to standard users. The consequence is disastrous if the contract owner's private key has been compromised. And, in the event the key was lost or unrecoverable, no implementation upgrades and system parameter updates will ever be possible.
+
+For a project this grand, it increases the likelihood that the owner will be targeted by an attacker, especially given the insufficient protection on sensitive owner private keys. The concentration of privileges creates a single point of failure; and, here are some of the incidents that could possibly transpire:
+
+Transfer ownership and mess up with all the setter functions, hijacking the entire protocol.
+
+Consider:
+1) splitting privileges (e.g. via the multisig option) to ensure that no one address has excessive ownership of the system,
+2) clearly documenting the functions and implementations the owner can change,
+3) documenting the risks associated with privileged users and single points of failure, and
+4) ensuring that users are aware of all the risks associated with the system.
+
+## Open TODOs
+Open TODOs can point to architecture or programming issues that still need to be resolved. Consider resolving them before deploying.
+
+Here are some of the instances entailed:
+
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/factories/LineFactory.sol#L140
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/factories/LineFactory.sol#L145
+
+## Complementary Codehash Check for Immutable Address
+Consider adding an optional codehash check for immutable address at the constructor since the zero address check cannot guarantee a matching address has been inputted. As an example, the following code block could be refactored to:
+
+https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/factories/LineFactory.sol#L20-L39
+
+```
+    constructor(
+        address moduleFactory,
+        address arbiter_,
+        address oracle_,
+        address swapTarget_,
+        bytes32 arbiter_CodeHash,
+        bytes32 oracle_CodeHash,
+        bytes32 swapTarget_CodeHash
+    ) {
+        factory = IModuleFactory(moduleFactory);
+        if (arbiter_ == address(0) && arbiter_.codehash != arbiter_CodeHash) {
+            revert InvalidArbiterAddress();
+        }
+        if (oracle_ == address(0) && oracle_.codehash != oracle_CodeHash) {
+            revert InvalidOracleAddress();
+        }
+        if (swapTarget_ == address(0) && swapTarget_.codehash != swapTarget_CodeHash) {
+            revert InvalidSwapTargetAddress();
+        }
+        arbiter = arbiter_;
+        oracle = oracle_;
+        swapTarget = swapTarget_;
+    }
+```
