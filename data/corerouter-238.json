@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "corerouter",
+  "risk": "2",
+  "title": "A recommendation here is to stop using transfer() in the codes and switch to using call() instead.",
+  "issueId": 238,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/238"
+}
