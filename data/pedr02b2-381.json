@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "pedr02b2",
+  "risk": "2",
+  "title": "Possible loss of ownership over Escrow.sol",
+  "issueId": 381,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/381"
+}
