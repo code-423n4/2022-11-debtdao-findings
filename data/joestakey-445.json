@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "joestakey",
+  "risk": "2",
+  "title": "potential loss of `msg.value` when adding credit for an ERC20 token",
+  "issueId": 445,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/445"
+}
