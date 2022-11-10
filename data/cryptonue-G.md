@@ -72,3 +72,32 @@ File: MutualConsent.sol
 38:     function _mutualConsent(address _signerOne, address _signerTwo) internal returns(bool) {
 
 ```
+
+# MATHEMATICAL OPTIMIZATIONS
+
+X += Y costs 22 more gas than X = X + Y. This can mean a lot of gas wasted in a function call when the computation is repeated n times (loops)
+
+```solidity
+File: LineOfCredit.sol
+179:         for (uint256 i; i < len; ++i) {
+...
+192:             principal += _p;
+193:             interest += _i;
+...
+196:         }
+```
+
+```solidity
+File: EscrowLib.sol
+57:         for (uint256 i; i < length; ++i) {
+...
+62:             if (deposit != 0) {
+... 
+75:                 collateralValue += CreditLib.calculateValue(
+76:                   o.getLatestAnswer(d.asset),
+77:                   deposit,
+78:                   d.assetDecimals
+79:                 );
+80:             }
+81:         }
+```
