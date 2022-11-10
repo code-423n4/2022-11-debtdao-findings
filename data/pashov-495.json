@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "pashov",
+  "risk": "2",
+  "title": "Using `keccak256(abi.encoded())` can result in collisions",
+  "issueId": 495,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/495"
+}
