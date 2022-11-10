@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "berndartmueller",
+  "risk": "2",
+  "title": "Claimed native ETH funds can not be traded with `0x` and remain locked",
+  "issueId": 464,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/464"
+}
