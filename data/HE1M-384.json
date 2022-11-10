@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "HE1M",
+  "risk": "2",
+  "title": "Arbitrary `zeroExTradeData` calldata to the exchange router may result in loss of fund for the borrower",
+  "issueId": 384,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/384"
+}
