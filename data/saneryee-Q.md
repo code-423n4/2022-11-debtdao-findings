@@ -2,8 +2,8 @@
 
 | |Issue|Instances|
 |-|:-|:-:|
-|[L-006]|`approve` should be replaced with `safeIncreaseAllowance()` or `safeDecreaseAllowance()`|1|
-|[L-008]|Events not emitted for important state changes / Missing event for critical parameter changes|1|
+|[L-001]|`approve` should be replaced with `safeIncreaseAllowance()` or `safeDecreaseAllowance()`|1|
+|[L-002]|Events not emitted for important state changes / Missing event for critical parameter changes|1|
 
 
 ## [L-001] `approve` should be replaced with `safeIncreaseAllowance()` or `safeDecreaseAllowance()`
