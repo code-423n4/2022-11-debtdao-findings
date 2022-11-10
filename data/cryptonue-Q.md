@@ -103,5 +103,7 @@ File: EscrowedLine.sol
 
 Source codes lines should be limited to a certain number of characters, usually lines in source code are limited to 80 characters. Today’s screens are much larger so it’s reasonable to stretch this in some cases. A good practice is to ensure the code does not require a horizontal scroll bar on GitHub. Even if it's for a comments it's better to follow this limit. Since the files will most likely reside in GitHub, and GitHub starts using a scroll bar in all cases when the length is over 164 characters, longer than that should be split.
 
+# [NC] INCONSISTENCY USING UINT AND UINT256
 
+Most of the time it use `uint256` but some other part `uint`. Even though it's the same meaning, but a good consistency is better for a quality code. 
 
