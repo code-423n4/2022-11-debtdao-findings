@@ -43,3 +43,26 @@ File: LineFactory.sol
 14:     uint32 constant defaultMinCRatio = 3000; // 30.00% minimum collateral ratio
 
 ```
+
+# INTERNAL FUNCTIONS ONLY CALLED ONCE CAN BE INLINED TO SAVE GAS
+
+Not inlining costs 20 to 40 gas because of two extra JUMP instructions and additional stack operations needed for function calls.
+
+```solidity
+File: LineOfCredit.sol
+167:     function _updateOutstandingDebt()
+168:         internal
+169:         returns (uint256 principal, uint256 interest)
+170:     {
+
+File: InterestRateCredit.sol
+42:     function _accrueInterest(
+43:         bytes32 id,
+44:         uint256 drawnBalance,
+45:         uint256 facilityBalance
+46:     ) internal returns (uint256) {
+
+File: MutualConsent.sol
+38:     function _mutualConsent(address _signerOne, address _signerTwo) internal returns(bool) {
+
+```
