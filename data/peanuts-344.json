@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "peanuts",
+  "risk": "2",
+  "title": "Lack of upper bound in lenders lending to a borrower's line of credit may cause denial of service",
+  "issueId": 344,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/344"
+}
