@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Trust",
+  "risk": "3",
+  "title": "When borrower repays, it can overflow and make them owe 2^256 tokens to lender.",
+  "issueId": 418,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/418"
+}
