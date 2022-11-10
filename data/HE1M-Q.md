@@ -52,3 +52,7 @@ https://github.com/debtdao/Line-of-Credit/blob/f32cb3eeb08663f2456bf6e2fba21e964
 
 Now, the borrower transaction for rolling over will be reverted, because the status of new line is not `LineLib.STATUS.UNINITIALIZED`. 
 https://github.com/debtdao/Line-of-Credit/blob/f32cb3eeb08663f2456bf6e2fba21e964da3e8ae/contracts/modules/credit/SecuredLine.sol#L57
+
+### No. 4
+Line 234 will never be called, it can be removed:
+https://github.com/debtdao/Line-of-Credit/blob/c1037d7f873cfb2af48fdaf00e44cd55c7737fc1/contracts/utils/SpigotedLineLib.sol#L234
