@@ -2,7 +2,7 @@ https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contra
 https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/utils/SpigotedLineLib.sol#L217
 
 Unreachable code
-revert is called before the return rendering the return unreachable. 
+revert is called before the return rendering the return statement unreachable. 
 
 Recommendation:
 
