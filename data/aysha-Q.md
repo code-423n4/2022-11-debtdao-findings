@@ -109,3 +109,8 @@ https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c
 https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/SpigotLib.sol#L178
 ==========================================================
 
+Hash collisions with multiple variable length arguments: Using abi.encodePacked() with multiple variable length arguments can, in certain situations, lead to a hash collision. Do not allow users access to parameters used in abi.encodePacked(), use fixed length arrays or use abi.encode(). (see here: https://swcregistry.io/docs/SWC-133 and here: https://docs.soliditylang.org/en/v0.5.3/abi-spec.html#non-standard-packed-mode )
+
+https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/MutualConsent.sol#L45
+https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/utils/MutualConsent.sol#L48
+==========================================================
