@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "SmartSek",
+  "risk": "3",
+  "title": "Reentrancy in `_close()` allows single lender to steal all deposits from other lenders",
+  "issueId": 498,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/498"
+}
