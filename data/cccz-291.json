@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "cccz",
+  "risk": "2",
+  "title": "sendOutTokenOrETH() calls native payable.transfer, which can be unusable for smart contract calls",
+  "issueId": 291,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/291"
+}
