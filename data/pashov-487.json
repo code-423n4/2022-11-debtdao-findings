@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "pashov",
+  "risk": "2",
+  "title": "`SpigotedLineLib::trade` won’t work with tokens with approval race protection (USDT)",
+  "issueId": 487,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/487"
+}
