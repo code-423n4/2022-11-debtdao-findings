@@ -5,6 +5,8 @@
 - Use Calldata instead of Memory for Read Only Function Parameters
 - Using Elements Smaller than 32 bytes (256 bits) Might Use More Gas
 - Empty Blocks Should Emit Something or be Removed
+- Keep The Revert Strings of Error Messages within 32 Bytes
+- Use Custom Errors to Save Gas
 
 &ensp;
 ### Duplicate require() Checks Should be a Modifier or a Function
@@ -193,5 +195,47 @@ Total of 1 instance found.
 
 #### Mitigation
 Add emit or revert in the function block.
+
+&ensp;
+### Keep The Revert Strings of Error Messages within 32 Bytes
+
+#### Issue
+Since each storage slot is size of 32 bytes, error messages that is longer than this will need
+extra storage slot leading to more gas cost.
+
+#### PoC
+Total of 1 instance found.
+```solidity
+InterestRateCredit.sol
+26:        require(
+27:            msg.sender == lineContract,
+28:            "InterestRateCred: only line contract."
+29:        );
+```
+https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/modules/interest-rate/InterestRateCredit.sol#L26-L29
+
+#### Mitigation
+Simply keep the error messages within 32 bytes to avoid extra storage slot cost.
+
+&ensp;
+### Use Custom Errors to Save Gas
+
+#### Issue
+Custom errors from Solidity 0.8.4 are cheaper than revert strings.
+Details are explained here: https://blog.soliditylang.org/2021/04/21/custom-errors/
+
+#### PoC
+Total of 1 instance found.
+```solidity
+InterestRateCredit.sol
+26:        require(
+27:            msg.sender == lineContract,
+28:            "InterestRateCred: only line contract."
+29:        );
+```
+https://github.com/debtdao/Line-of-Credit/blob/e8aa08b44f6132a5ed901f8daa231700c5afeb3a/contracts/modules/interest-rate/InterestRateCredit.sol#L26-L29
+
+#### Mitigation
+I suggest implementing custom errors to save gas.
 
 &ensp;
