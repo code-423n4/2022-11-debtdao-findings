@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "adriro",
+  "risk": "2",
+  "title": "`close` function in LineOfCredit can't be called by the lender if credit is in ETH",
+  "issueId": 348,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/348"
+}
