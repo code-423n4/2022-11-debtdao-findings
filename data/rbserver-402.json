@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "rbserver",
+  "risk": "3",
+  "title": "Legitimate token / USD pairs with more than 8 decimals are not handled correctly",
+  "issueId": 402,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/402"
+}
