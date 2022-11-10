@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "pashov",
+  "risk": "2",
+  "title": "Oracle’s price is not checked for staleness",
+  "issueId": 493,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/493"
+}
