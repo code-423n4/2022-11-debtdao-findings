@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Trust",
+  "risk": "2",
+  "title": "If borrower sends msg.value to addCredit() or increaseCredit(), this value will be permanently frozen.",
+  "issueId": 408,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/408"
+}
