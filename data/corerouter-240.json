@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "corerouter",
+  "risk": "3",
+  "title": "function trade() is public and has no access control which may result in capital loss.",
+  "issueId": 240,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/240"
+}
