@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "adriro",
+  "risk": "3",
+  "title": "Potential DoS in `accrueInterest` function in LineOfCredit contract",
+  "issueId": 324,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/324"
+}
