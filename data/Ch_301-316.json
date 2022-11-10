@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Ch_301",
+  "risk": "2",
+  "title": "The `interestAccrued` would-be locked forever",
+  "issueId": 316,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/316"
+}
