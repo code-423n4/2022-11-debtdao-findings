@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "lotux",
+  "risk": "2",
+  "title": "Some functions may not correctly associate the deposited credit and therefore lead to a loss of funds",
+  "issueId": 466,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/466"
+}
