@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "cccz",
+  "risk": "2",
+  "title": "abi.decode should check the parameter length",
+  "issueId": 295,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/295"
+}
