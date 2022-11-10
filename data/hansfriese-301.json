@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "hansfriese",
+  "risk": "2",
+  "title": "There would be a problem when a lender calls `LineOfCredit.close()`.",
+  "issueId": 301,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/301"
+}
