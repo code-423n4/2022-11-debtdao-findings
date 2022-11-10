@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Trust",
+  "risk": "2",
+  "title": "Borrowers may unknowingly use a previous collateral ratio when deploying a secured line with existing modules.",
+  "issueId": 426,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/426"
+}
