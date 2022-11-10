@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "rbserver",
+  "risk": "2",
+  "title": "ETH amount that is accidentally sent when calling `LineLib.receiveTokenOrETH` function for an ERC20 token is locked in line of credit contract",
+  "issueId": 405,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/405"
+}
