@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "minhquanym",
+  "risk": "3",
+  "title": "Borrower can manipulate the repayment queue, avoid paying back the initial lender",
+  "issueId": 354,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/354"
+}
