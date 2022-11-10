@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Tomo",
+  "risk": "3",
+  "title": "[Tomo-H1] ERC4626 vulnerable to price manipulation",
+  "issueId": 262,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/262"
+}
