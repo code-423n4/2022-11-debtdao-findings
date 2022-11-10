@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "minhquanym",
+  "risk": "2",
+  "title": "Lender can call `claimAndRepay()` with no slippage protection",
+  "issueId": 363,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/363"
+}
