@@ -25,13 +25,118 @@ Consider taking into account this issue and warning the users that such a scenar
 Try limit the length of comments and/or code lines to 80 - 100 character long for readability sake. Here are some instances found.
 
 [Line 12](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/utils/CreditListLib.sol#L12)
+
+```
+     * @dev assumes that `id` of a single credit line within the Line of Credit facility (same lender/token) is stored only once in the `positions` array
+```
 [Lines 36 - 37](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/SpigotedLine.sol#L36-L37)
+
+```
+     * @notice - excess unsold revenue claimed from Spigot to be sold later or excess credit tokens bought from revenue but not yet used to repay debt
+     *         - needed because the Line of Credit might have the same token being lent/borrower as being bought/sold so need to separate accounting. 
+```
 [Line 71](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/escrow/Escrow.sol#L71)
+
+```
+    * @dev    - Used if we setup Escrow before Line exists. Line has no way to interface with this function so once transfered `line` is set forever
+```
 
 ## TIMELOCK FOR CRITICAL PARAMETER CHANGE
 It is a good practice giving time to users to react and adjust to critical changes with a mandatory time window between the changes. The first step is simply broadcasting to users with a specific change that is coming whilst the second step commits that change after an appropriate period of waiting. This would allow time for users opposing to the change to withdraw within the set time frame. A timelock provides more guarantees and reduces the level of trust required, thus decreasing risk for users. It also indicates that the project is legitimate (less risk of the owner making a malicious act). Specifically, privileged roles could use front running to make malicious changes just ahead of incoming transactions, or purely accidental negative effects could occur due to the unfortunate timing of changes. Here are the instances found.
 
 [Lines 125 - 213](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/utils/SpigotLib.sol#L125-L213)
+
+```
+    function addSpigot(SpigotState storage self, address revenueContract, ISpigot.Setting memory setting) external returns (bool) {
+        if(msg.sender != self.owner) { revert CallerAccessDenied(); }
+
+        require(revenueContract != address(this));
+        // spigot setting already exists
+        require(self.settings[revenueContract].transferOwnerFunction == bytes4(0));
+        
+        // must set transfer func
+        if(setting.transferOwnerFunction == bytes4(0)) { revert BadSetting(); }
+        if(setting.ownerSplit > MAX_SPLIT) { revert BadSetting(); }
+        
+        self.settings[revenueContract] = setting;
+        emit AddSpigot(revenueContract, setting.ownerSplit);
+
+        return true;
+    }
+
+    /** see Spigot.removeSpigot */
+    function removeSpigot(SpigotState storage self, address revenueContract)
+        external
+        returns (bool)
+    {
+        if(msg.sender != self.owner) { revert CallerAccessDenied(); }
+
+        (bool success,) = revenueContract.call(
+            abi.encodeWithSelector(
+                self.settings[revenueContract].transferOwnerFunction,
+                self.operator    // assume function only takes one param that is new owner address
+            )
+        );
+        require(success);
+
+        delete self.settings[revenueContract];
+        emit RemoveSpigot(revenueContract);
+
+        return true;
+    }
+
+    /** see Spigot.updateOwnerSplit */
+    function updateOwnerSplit(SpigotState storage self, address revenueContract, uint8 ownerSplit)
+        external
+        returns(bool)
+    {
+      if(msg.sender != self.owner) { revert CallerAccessDenied(); }
+      if(ownerSplit > MAX_SPLIT) { revert BadSetting(); }
+
+      self.settings[revenueContract].ownerSplit = ownerSplit;
+      emit UpdateOwnerSplit(revenueContract, ownerSplit);
+      
+      return true;
+    }
+
+    /** see Spigot.updateOwner */
+    function updateOwner(SpigotState storage self, address newOwner) external returns (bool) {
+        if(msg.sender != self.owner) { revert CallerAccessDenied(); }
+        require(newOwner != address(0));
+        self.owner = newOwner;
+        emit UpdateOwner(newOwner);
+        return true;
+    }
+
+    /** see Spigot.updateOperator */
+    function updateOperator(SpigotState storage self, address newOperator) external returns (bool) {
+        if(msg.sender != self.operator) { revert CallerAccessDenied(); }
+        require(newOperator != address(0));
+        self.operator = newOperator;
+        emit UpdateOperator(newOperator);
+        return true;
+    }
+
+    /** see Spigot.updateTreasury */
+    function updateTreasury(SpigotState storage self, address newTreasury) external returns (bool) {
+        if(msg.sender != self.operator && msg.sender != self.treasury) {
+          revert CallerAccessDenied();
+        }
+
+        require(newTreasury != address(0));
+        self.treasury = newTreasury;
+        emit UpdateTreasury(newTreasury);
+        return true;
+    }
+
+    /** see Spigot.updateWhitelistedFunction*/
+    function updateWhitelistedFunction(SpigotState storage self, bytes4 func, bool allowed) external returns (bool) {
+        if(msg.sender != self.owner) { revert CallerAccessDenied(); }
+        self.whitelistedFunctions[func] = allowed;
+        emit UpdateWhitelistFunction(func, allowed);
+        return true;
+    }
+```
 
 ## TODO
 Open TODO can point to an architecture or programming issue needing to be resolved. It is recommended resolving them before deploying.
