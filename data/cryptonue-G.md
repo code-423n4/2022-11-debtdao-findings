@@ -101,3 +101,16 @@ File: EscrowLib.sol
 80:             }
 81:         }
 ```
+
+# MODIFIER INSTEAD OF DUPLICATE REQUIRE
+
+When a require statement is used multiple times, it is cheaper in deployment costs to use a modifier instead.
+
+```solidity
+File: EscrowLib.sol
+91:         require(amount > 0);
+...
+161:         require(amount > 0);
+...
+198:         require(amount > 0);
+```
