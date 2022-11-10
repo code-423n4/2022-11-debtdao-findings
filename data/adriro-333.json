@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "adriro",
+  "risk": "3",
+  "title": "Closing an unexisting credit can overflow the credit count variable in the LineOfCredit contract",
+  "issueId": 333,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/333"
+}
