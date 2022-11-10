@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "RedOneN",
+  "risk": "2",
+  "title": "CALL() SHOULD BE USED INSTEAD OF TRANSFER() ON AN ADDRESS PAYABLE",
+  "issueId": 407,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/407"
+}
