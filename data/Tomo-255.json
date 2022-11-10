@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Tomo",
+  "risk": "2",
+  "title": "[Tomo-M4] Use call instead of transfer when sending ETH",
+  "issueId": 255,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/255"
+}
