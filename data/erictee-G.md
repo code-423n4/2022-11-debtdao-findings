@@ -70,3 +70,15 @@ contracts/modules/credit/LineOfCredit.sol:L520        for (uint256 i; i <= lastS
 
 ```
 
+### [G-05] Revert message greater than 32 bytes
+
+
+#### Impact
+Keep revert message lower than or equal to 32 bytes to save gas.
+
+
+#### Findings:
+```
+contracts/modules/interest-rate/InterestRateCredit.sol:L26        require(
+
+```
