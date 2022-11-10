@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "pashov",
+  "risk": "3",
+  "title": "Getting collateral value by calling `previewRedeem` can be manipulated",
+  "issueId": 486,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/486"
+}
