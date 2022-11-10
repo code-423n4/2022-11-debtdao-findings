@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "immeas",
+  "risk": "2",
+  "title": "excess `eth` passed to `LineOfCredit` is stuck",
+  "issueId": 307,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/307"
+}
