@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "hansfriese",
+  "risk": "3",
+  "title": "Attacker can steal all ERC777 tokens inside the credit contract",
+  "issueId": 297,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/297"
+}
