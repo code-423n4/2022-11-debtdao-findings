@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "datapunk",
+  "risk": "2",
+  "title": " `sendOutTokenOrETH` CALLS NATIVE PAYABLE.TRANSFER for eth transfer, WHICH CAN BE UNUSABLE FOR Receiver",
+  "issueId": 389,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/389"
+}
