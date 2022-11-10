@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Chom",
+  "risk": "2",
+  "title": "Oracle may return a stale price which causes a significant loss due to arbitraging the price difference.",
+  "issueId": 447,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/447"
+}
