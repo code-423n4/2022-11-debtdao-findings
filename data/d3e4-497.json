@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "d3e4",
+  "risk": "2",
+  "title": "`LineLib.receiveTokenOrETH()` can accept more ETH than it accounts for",
+  "issueId": 497,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/497"
+}
