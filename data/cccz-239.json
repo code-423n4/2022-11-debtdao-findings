@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "cccz",
+  "risk": "3",
+  "title": "SpigotedLine: lender can call claimAndRepay and perform sandwich attack",
+  "issueId": 239,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/239"
+}
