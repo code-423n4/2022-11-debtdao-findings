@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "berndartmueller",
+  "risk": "2",
+  "title": "Dust allowance will prevent certain ERC-20 tokens from being traded",
+  "issueId": 473,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/473"
+}
