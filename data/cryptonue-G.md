@@ -46,6 +46,12 @@ File: LineFactory.sol
 
 # INTERNAL FUNCTIONS ONLY CALLED ONCE CAN BE INLINED TO SAVE GAS
 
+When we define internal functions to perform computation:
+
+- The contract’s code size gets bigger
+- The function call consumes more gas than executing it as an inlined function (part of the code, without the function call)
+
+When it does not affect readability, it is recommended to inline functions in order to save gas
 Not inlining costs 20 to 40 gas because of two extra JUMP instructions and additional stack operations needed for function calls.
 
 ```solidity
