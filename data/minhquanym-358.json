@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "minhquanym",
+  "risk": "2",
+  "title": "Possible DOS because of unbounded gas consumption in function `accrueInterest()`",
+  "issueId": 358,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/358"
+}
