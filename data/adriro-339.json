@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "adriro",
+  "risk": "2",
+  "title": "`operate` function in Spigot can be used to make arbitrary calls on behalf of the Spigot",
+  "issueId": 339,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/339"
+}
