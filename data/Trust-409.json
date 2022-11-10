@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Trust",
+  "risk": "2",
+  "title": "Borrower may deny the option to close the contract from lender, impairing contract functionality.",
+  "issueId": 409,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/409"
+}
