@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Ch_301",
+  "risk": "2",
+  "title": "No logic to send back ETH if `msg.value > amount`",
+  "issueId": 318,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/318"
+}
