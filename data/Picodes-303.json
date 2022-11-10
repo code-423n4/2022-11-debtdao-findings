@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Picodes",
+  "risk": "2",
+  "title": "Check timestamp returned by Chainlink",
+  "issueId": 303,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/303"
+}
