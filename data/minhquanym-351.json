@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "minhquanym",
+  "risk": "3",
+  "title": "Functions `addCredit(...)` and `increaseCredit(...)` can lock lender’s ETH forever",
+  "issueId": 351,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/351"
+}
