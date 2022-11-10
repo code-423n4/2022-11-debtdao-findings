@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "0xNazgul",
+  "risk": "2",
+  "title": "[NAZ-M2] Lack of Price Freshness Check In `Oracle.sol#latestRoundData()` Allows A Stale Price To Be Used",
+  "issueId": 484,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/484"
+}
