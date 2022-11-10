@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "0xbepresent",
+  "risk": "2",
+  "title": "Borrow function is prone to frontrunning by malicious lender",
+  "issueId": 406,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/406"
+}
