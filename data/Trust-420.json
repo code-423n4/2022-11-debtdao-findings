@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "Trust",
+  "risk": "3",
+  "title": "Lender will not receive facilityFee if borrower leaves the borrow open with principal zero.",
+  "issueId": 420,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/420"
+}
