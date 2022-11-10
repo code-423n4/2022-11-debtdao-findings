@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "ctf_sec",
+  "risk": "2",
+  "title": "Centralization risk; Arbiter / escrow owner can misbehave and take the collateral then run away or never call liquidate to clean the bad debt.",
+  "issueId": 280,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/280"
+}
