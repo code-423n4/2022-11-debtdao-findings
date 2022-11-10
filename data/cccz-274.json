@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "cccz",
+  "risk": "2",
+  "title": "When claimToken == ETH, lender may call claimAndTrade function to consume ETH in the contract",
+  "issueId": 274,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/274"
+}
