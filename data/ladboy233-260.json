@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "Liquidate function in Escrow does not check if the position is liquidable.",
+  "issueId": 260,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/260"
+}
