@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "everyanykey",
+  "risk": "2",
+  "title": "Not checking amount of received ERC20 tokens",
+  "issueId": 499,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/499"
+}
