@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "hansfriese",
+  "risk": "2",
+  "title": "The credit will be broken if the credit token is a `fee-on-transfer` one",
+  "issueId": 300,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/300"
+}
