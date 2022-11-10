@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "minhquanym",
+  "risk": "3",
+  "title": "Lender can reject receiving tokens, making `LineOfCredit` liquidatable",
+  "issueId": 352,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/352"
+}
