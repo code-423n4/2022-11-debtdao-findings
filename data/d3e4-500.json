@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "d3e4",
+  "risk": "2",
+  "title": "`LineLib.sendOutTokenOrETH()` may not be compatible with contract receiver because of use of `transfer()`",
+  "issueId": 500,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/500"
+}
