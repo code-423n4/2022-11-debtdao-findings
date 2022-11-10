@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "hansfriese",
+  "risk": "3",
+  "title": "Borrower's principal can be enormous due to underflow",
+  "issueId": 414,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/414"
+}
