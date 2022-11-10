@@ -1,0 +1,8 @@
+{
+  "contest": 174,
+  "handle": "adriro",
+  "risk": "3",
+  "title": "Potential DoS when closing a credit nominated in ETH in the LineOfCredit contract",
+  "issueId": 331,
+  "issueUrl": "https://github.com/code-423n4/2022-11-debtdao-findings/issues/331"
+}
