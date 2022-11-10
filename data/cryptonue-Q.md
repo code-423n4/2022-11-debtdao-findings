@@ -13,6 +13,32 @@ File: SpigotLib.sol
 184:     }
 ```
 
+# [L] AMOUNT NOT CHECKED
+
+When `sendOutTokenOrETH()` being called, there is no check on `amount` > 0, it will be better to just revert or skip the transfer if the amount is 0. This will also save gas because no transaction will be executed if amount is 0.
+
+```solidity
+File: LineLib.sol
+34:     function sendOutTokenOrETH(
+35:       address token,
+36:       address receiver,
+37:       uint256 amount
+38:     )
+39:       external
+40:       returns (bool)
+41:     {
+42:         if(token == address(0)) { revert TransferFailed(); }
+43:         
+44:         // both branches revert if call failed
+45:         if(token!= Denominations.ETH) { // ERC20
+46:             IERC20(token).safeTransfer(receiver, amount);
+47:         } else { // ETH
+48:             payable(receiver).transfer(amount);
+49:         }
+50:         return true;
+51:     }
+```
+
 # [L] UNSPECIFIC COMPILER VERSION PRAGMA
 
 Avoid floating pragmas for non-library contracts.
@@ -72,25 +98,6 @@ File: EscrowLib.sol
 131:                 (bool successDecimals, bytes memory decimalBytes) = deposit
 132:                     .asset
 133:                     .call(abi.encodeWithSignature("decimals()"));
-```
-
-# [L] ABI.ENCODEPACKED() SHOULD NOT BE USED WITH DYNAMIC TYPES WHEN PASSING THE RESULT TO A HASH FUNCTION SUCH AS KECCAK256()
-
-Use `abi.encode()` instead which will pad items to 32 bytes, which will prevent hash collisions (e.g. `abi.encodePacked(0x123,0x456)` => `0x123456` => `abi.encodePacked(0x1,0x23456)`, but `abi.encode(0x123,0x456)` => `0x0...1230...456`). “Unless there is a compelling reason, `abi.encode` should be preferred”.
-
-```solidity
-File: MutualConsent.sol
-45:         bytes32 expectedHash = keccak256(abi.encodePacked(msg.data, nonCaller));
-46: 
-47:         if (!mutualConsents[expectedHash]) {
-48:             bytes32 newHash = keccak256(abi.encodePacked(msg.data, msg.sender));
-49: 
-50:             mutualConsents[newHash] = true;
-51: 
-52:             emit MutualConsentRegistered(newHash);
-53: 
-54:             return false;
-55:         }
 ```
 
 # [NC] USE A MORE RECENT VERSION OF SOLIDITY
