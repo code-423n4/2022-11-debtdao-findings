@@ -145,6 +145,18 @@ Here are some of the instances found:
 
 [Lines 140 - 148](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/factories/LineFactory.sol#L140-L148)
 
+```
+        // TODO: test
+        if (mSpigot == address(0)) {
+            revert InvalidSpigotAddress();
+        }
+
+        // TODO: test
+        if (mEscrow == address(0)) {
+            revert InvalidEscrowAddress();
+        }
+```
+
 ## MISSING NATSPEC
 As documented in the link below:
 
@@ -155,8 +167,118 @@ It is recommended using a special form of comments, i.e., the Ethereum Natural L
 Here are some instances found.
 
 [Lines 64 - 91](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L64-L91)
-[Lines 223 - 285](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L223-L285)
+
+```
+    function init() external virtual returns(LineLib.STATUS) {
+      if(status != LineLib.STATUS.UNINITIALIZED) { revert AlreadyInitialized(); }
+      return _updateStatus(_init());
+    }
+
+    function _init() internal virtual returns(LineLib.STATUS) {
+       // If no collateral or Spigot then Line of Credit is immediately active
+      return LineLib.STATUS.ACTIVE;
+    }
+
+    ///////////////
+    // MODIFIERS //
+    ///////////////
+
+    modifier whileActive() {
+        if(status != LineLib.STATUS.ACTIVE) { revert NotActive(); }
+        _;
+    }
+
+    modifier whileBorrowing() {
+        if(count == 0 || credits[ids[0]].principal == 0) { revert NotBorrowing(); }
+        _;
+    }
+
+    modifier onlyBorrower() {
+        if(msg.sender != borrower) { revert CallerAccessDenied(); }
+        _;
+    }
+```
+[Lines 223 - 285](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L222-L285)
+
+```
+    /// see ILineOfCredit.addCredit
+    function addCredit(
+        uint128 drate,
+        uint128 frate,
+        uint256 amount,
+        address token,
+        address lender
+    )
+        external
+        payable
+        override
+        whileActive
+        mutualConsent(lender, borrower)
+        returns (bytes32)
+    {
+        LineLib.receiveTokenOrETH(token, lender, amount);
+
+        bytes32 id = _createCredit(lender, token, amount);
+
+        require(interestRate.setRate(id, drate, frate));
+        
+        return id;
+    }
+
+    /// see ILineOfCredit.setRates
+    function setRates(
+        bytes32 id,
+        uint128 drate,
+        uint128 frate
+    )
+      external
+      override
+      mutualConsentById(id)
+      returns (bool)
+    {
+        Credit memory credit = credits[id];
+        credits[id] = _accrue(credit, id);
+        require(interestRate.setRate(id, drate, frate));
+        emit SetRates(id, drate, frate);
+        return true;
+    }
+
+    /// see ILineOfCredit.increaseCredit
+    function increaseCredit(bytes32 id, uint256 amount)
+      external
+      payable
+      override
+      whileActive
+      mutualConsentById(id)
+      returns (bool)
+    {
+        Credit memory credit = credits[id];
+        credit = _accrue(credit, id);
+
+        credit.deposit += amount;
+        
+        credits[id] = credit;
+
+        LineLib.receiveTokenOrETH(credit.token, credit.lender, amount);
+
+        emit IncreaseCredit(id, amount);
+
+        return true;
+    }
+```
 [Lines 21 - 29](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L21-L29)
+
+```
+    uint256 public immutable deadline;
+
+    address public immutable borrower;
+
+    address public immutable arbiter;
+
+    IOracle public immutable oracle;
+
+    InterestRateCredit public immutable interestRate;
+```
 
 ## SANITY CHECKS
 Zero address and zero value checks implemented at the constructor could avoid human errors leading to non-functional calls associated with the mistakes. This is especially so when the incidents entail immutable variables preventing them from getting reassigned that could end up having the protocol redeploy the contract.
@@ -165,15 +287,50 @@ Zero address and zero value checks implemented at the constructor could avoid hu
 Non-descriptive local variables could make code base difficult to read and navigate. Here are some of the instance found.
 
 [Line 390](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L390)
-[Lines 123 - 128](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L123-L128)
+
+```
+        address b = borrower; // gas savings
+```
+[Lines 123 - 128](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L123-L129)
+
+```
+        LineLib.STATUS s = status;
+        if (
+            s == LineLib.STATUS.REPAID ||               // end state - good
+            s == LineLib.STATUS.INSOLVENT               // end state - bad
+        ) {
+            return s;
+        }
+```
 [Lines 48 -53](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/utils/LineFactoryLib.sol#L48-L53)
+
+```
+        address s = address(SecuredLine(oldLine).spigot());
+        address e = address(SecuredLine(oldLine).escrow());
+        address payable st = SecuredLine(oldLine).swapTarget();
+        uint8 split = SecuredLine(oldLine).defaultRevenueSplit();
+        SecuredLine line = new SecuredLine(oracle, arbiter, borrower, st, s, e, ttl, split);
+        emit DeployedSecuredLine(address(line), s, e, st, split);
+```
 
 ## DOS ON UNBOUNDED LOOP
 Unbounded loop could lead to OOG (Out of Gas) denying the users' of needed services. Here are some instances found.
 
 [Line 179](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L179)
+
+```
+        for (uint256 i; i < len; ++i) {
+```
 [Line 203](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L203)
+
+```
+        for (uint256 i; i < len; ++i) {
+```
 [Line 520](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/modules/credit/LineOfCredit.sol#L520)
+
+```
+        for (uint256 i; i <= lastSpot; ++i) {
+```
 
 ## TYPO ERRORS
 [Line 123](https://github.com/debtdao/Line-of-Credit/blob/audit/code4rena-2022-11-03/contracts/utils/CreditLib.sol#L123)
