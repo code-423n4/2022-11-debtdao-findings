@@ -1,3 +1,11 @@
+---
+sponsor: "Debt DAO"
+slug: "2022-11-debtdao"
+date: "2023-02-07"
+title: "Debt DAO contest"
+findings: "https://github.com/code-423n4/2022-11-debtdao-findings/issues"
+contest: 174
+---
 
 # Overview
 
